@@ -32,14 +32,18 @@ void KA(string a){ //fungsi KA untuk memproses Kata Sandi menjadi Kata Asli
             rill += a[i]; //jika huruf masuk sini
         }
     }
-    reverse(rill.begin(), rill.end());//membalik urutan huruf
+    string rillbalik = "";//membalik urutan huruf
+    for(int i = rill.length() - 1; i >= 0; i--){
+        rillbalik += rill[i];
+    }
+
     if(ascii.empty() != true){ //mengecek apakah string ascii kosong
         char huruf = char(stoi(ascii)); //jika tidak kosong maka angka diubah menjadi huruf konversinya
-        if (huruf != rill[0]){ //mengecek apakah huruf koversi kode ASCII sama dengan huruf pertama pada string rill
-            rill.insert(0, 1, huruf); //menyisipkan huruf ke urutan awal string rill
+        if (huruf != rillbalik[0]){ //mengecek apakah huruf koversi kode ASCII sama dengan huruf pertama pada string rill
+            rillbalik.insert(0, 1, huruf); //menyisipkan huruf ke urutan awal string rill
         }
     }
-    cout << "Kerangka kata asli : " << rill << endl; //menampilkan kerangka Kata Asli yang hanya berupa huruf konsonan dan huruf ke-1
+    cout << "Kerangka kata asli : " << rillbalik << endl; //menampilkan kerangka Kata Asli yang hanya berupa huruf konsonan dan huruf ke-1
 }
 
 int main(){ //fungsi utama
